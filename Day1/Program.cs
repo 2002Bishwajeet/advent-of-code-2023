@@ -1,7 +1,12 @@
 ﻿const string filePath = "../../../input.txt";
 
 
- string[] words = {"one","two","three","four","five","six","seven","eight","nine"};
+ var wordsToNumbers = new Dictionary<string, int>()
+{
+    { "one", 1 }, { "two", 2 }, { "three", 3 }, { "four", 4 },
+    { "five", 5 },
+    { "six", 6 }, { "seven", 7 }, { "eight", 8 }, { "nine", 9 }
+};
 
 List<int> ExtractNumbers(String str)
 {
