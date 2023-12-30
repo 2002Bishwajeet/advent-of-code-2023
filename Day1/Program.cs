@@ -62,21 +62,22 @@ void PartTwo()
             var line = streamReader.ReadLine();
             if (line != null)
             {
-                string textSoFar = "";
-                int firstNumber = 0;
-                int lastNumber = 0;
+                var textSoFar = "";
+                var firstNumber = 0;
+                var lastNumber = 0;
                 foreach (var c in line)
                 {
-                    textSoFar+= c;
+                    textSoFar += c;
                     var num = ExtractNumFromText(textSoFar);
                     if (num != null)
                     {
-                        if(firstNumber == 0)
+                        if (firstNumber == 0)
                             firstNumber = num.Value;
                         else
                             lastNumber = num.Value;
-                        textSoFar = textSoFar.Remove(0, textSoFar.Length-1);
-                    } else if (char.IsNumber(c))
+                        textSoFar = textSoFar.Remove(0, textSoFar.Length - 1);
+                    }
+                    else if (char.IsNumber(c))
                     {
                         if (firstNumber == 0)
                             firstNumber = int.Parse(c.ToString());
@@ -85,10 +86,7 @@ void PartTwo()
                     }
                 }
 
-                if (lastNumber == 0)
-                {
-                    lastNumber = firstNumber;
-                }
+                if (lastNumber == 0) lastNumber = firstNumber;
                 sum += int.Parse($"{firstNumber}{lastNumber}");
             }
         }
@@ -96,5 +94,6 @@ void PartTwo()
 
     Console.WriteLine(sum);
 }
+
 PartOne();
 PartTwo();
